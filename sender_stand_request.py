@@ -1,6 +1,6 @@
-import configuration
 import requests
 import data
+import configuration
 
 
 def get_docs():
@@ -21,6 +21,7 @@ def get_users_table():
 
 response = get_users_table()
 print(response.status_code)
+print(get_users_table)
 
 def post_new_user(body):
     return requests.post(configuration.URL_SERVICE + configuration.CREATE_USER_PATH,  # inserta la dirección URL completa
@@ -32,14 +33,5 @@ response = post_new_user(data.user_body)
 print(response.status_code)
 print(response.json())
 print(data.user_body)
-
-def post_products_kits(products_ids):
-    # Realiza una solicitud POST para buscar kits por productos.
-    return requests.post(configuration.URL_SERVICE + configuration.PRODUCTS_KITS_PATH, # Concatenación de URL base y ruta.
-                         json=products_ids, # Datos a enviar en la solicitud.
-                         headers=data.headers) # Encabezados de solicitud.
-
-response = post_products_kits(data.product_ids);
-print(response.status_code)
-print(response.json()) # Muestra del resultado en la consola
+print(post_new_user)
 
