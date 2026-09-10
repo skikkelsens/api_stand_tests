@@ -24,12 +24,11 @@ print(response.status_code)
 print(get_users_table)
 
 def post_new_user(body):
-    return requests.post(configuration.URL_SERVICE + configuration.CREATE_USER_PATH,  # inserta la dirección URL completa
-                         json=body,  # inserta el cuerpo de solicitud
-                         headers=data.headers)  # inserta los encabezados
+    return requests.post(configuration.URL_SERVICE + configuration.CREATE_USER_PATH,
+                         json=body,
+                         headers=data.headers)
 
-response = post_new_user(data.user_body)
-
+response = post_new_user(data.user_body);
 print(response.status_code)
 print(response.json())
 print(data.user_body)
